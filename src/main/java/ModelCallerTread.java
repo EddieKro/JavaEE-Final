@@ -6,8 +6,8 @@ import java.util.List;
 
 public class ModelCallerTread implements Runnable {
 
-	private static File pyScript;
-	private static String shell;
+	private static File pyScript=new File("/home/tomato/IdeaProjects/JEE-final/hello.py");
+	private static String shell="python3";
 	private String[] features;
 
 	public ModelCallerTread(String[] features){
@@ -16,7 +16,7 @@ public class ModelCallerTread implements Runnable {
 
 	public void run() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(shell).append(" ").append(pyScript.getAbsolutePath());
+		sb.append(shell).append(" ").append(pyScript.getAbsolutePath()).append(" ");
 		for(String s:features)
 			sb.append(s).append(" ");
 		List<String> result=new ArrayList<String>();
@@ -35,6 +35,8 @@ public class ModelCallerTread implements Runnable {
 				while(es.ready())
 					System.out.println(es.readLine());
 			}
+			for(String s:result)
+				System.out.println(s);
 
 		}catch (Exception e){
 			System.out.println(e.getMessage());
