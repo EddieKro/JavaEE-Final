@@ -9,6 +9,7 @@ public class ModelCallerTread implements Runnable {
 	private static File pyScript=new File("/home/tomato/IdeaProjects/JEE-final/hello.py");
 	private static String shell="python3";
 	private String[] features;
+	private List<String> result=new ArrayList<String>();
 
 	public ModelCallerTread(String[] features){
 		this.features=features;
@@ -19,7 +20,6 @@ public class ModelCallerTread implements Runnable {
 		sb.append(shell).append(" ").append(pyScript.getAbsolutePath()).append(" ");
 		for(String s:features)
 			sb.append(s).append(" ");
-		List<String> result=new ArrayList<String>();
 		try {
 			Runtime r = Runtime.getRuntime();
 			Process script = r.exec(sb.toString());
@@ -57,6 +57,11 @@ public class ModelCallerTread implements Runnable {
 	public static void setShell(String shell) {
 		ModelCallerTread.shell = shell;
 	}
+
+	public List<String> getResult() {
+		return result;
+	}
+
 }
 
 
