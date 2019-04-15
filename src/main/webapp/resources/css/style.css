@@ -12,7 +12,11 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.image{
+    height: auto;
+    width: 100%;
+    margin-top: -14%;
+}
 html {
     overflow-x: hidden;
 }
@@ -297,7 +301,7 @@ a:hover, a:focus, a:active {
 .probootstrap-navbar .navbar-brand {
     font-size: 30px;
     text-transform: uppercase;
-    background: url(/resources/img/logo.png) no-repeat left center;
+    /*background: url("/resources/img/logo_ore.png") no-repeat left center;*/
     top: 8px;
     position: relative;
     width: 160px;
@@ -322,7 +326,7 @@ a:hover, a:focus, a:active {
         position: relative;
         width: 160px;
         height: 43px;
-        background: url(/resources/img/logo@2x.png) no-repeat left center;
+        /*background: url("/resources/img/logo_ore.png") no-repeat left center;*/
         background-size: cover;
     }
 }
