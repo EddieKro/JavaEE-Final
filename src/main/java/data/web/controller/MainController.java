@@ -1,5 +1,10 @@
 package data.web.controller;
 
+import data.Dao.StatusDao;
+import data.Dao.UserDao;
+import data.Entity.StatusEntity;
+import data.Entity.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,8 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Date;
+
 @Controller
 public class MainController {
+
+    @Autowired
+    UserDao ud;
+    @Autowired
+    StatusDao sd;
 
     @RequestMapping(value = {"/", "/index**"}, method = RequestMethod.GET)
     public ModelAndView defaultPage() {
@@ -127,5 +139,17 @@ public class MainController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView registrationPage() {
         return new ModelAndView();
+    }
+
+    private StatusEntity getStatus(Integer id){
+        return sd.getStatusById(id);
+    }
+    private void registerUser(String login, String pass, StatusEntity se){
+        UserEntity ue = new UserEntity();
+        ue.setLogin(login);
+        ue.setPassword(pass);
+        ue.setDate(new Date(System.currentTimeMillis()));
+        ue.setStatus(se);
+        ud.save(ue);
     }
 }
