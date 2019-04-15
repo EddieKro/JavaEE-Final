@@ -1,3 +1,5 @@
+package model;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -6,13 +8,15 @@ import java.util.List;
 
 public class ModelCallerTread implements Runnable {
 
-	private static File pyScript=new File("/home/tomato/IdeaProjects/JEE-final/hello.py");
-	private static String shell="python3";
+	private File pyScript;
+	private static String shell="python3.6";
 	private String[] features;
+
 	private List<String> result=new ArrayList<String>();
 
-	public ModelCallerTread(String[] features){
+	public ModelCallerTread(String[] features,File pyScript) {
 		this.features=features;
+		this.pyScript=pyScript;
 	}
 
 	public void run() {
@@ -43,12 +47,13 @@ public class ModelCallerTread implements Runnable {
 		}
 
 	}
-	public static File getPyScript() {
+
+	public File getPyScript() {
 		return pyScript;
 	}
 
-	public static void setPyScript(File pyScript) {
-		ModelCallerTread.pyScript = pyScript;
+	public void setPyScript(File pyScript) {
+		this.pyScript = pyScript;
 	}
 	public static String getShell() {
 		return shell;

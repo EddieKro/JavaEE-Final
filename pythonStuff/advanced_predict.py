@@ -4,7 +4,7 @@ import datetime
 import numpy as np
 import pandas as pd
 
-def get_city_index(month,city,cities=pd.read_csv('data/cities_small.csv')):
+def get_city_index(month,city,cities=pd.read_csv('./data/cities_small.csv')):
 	return cities.iloc[month][city].tolist()
 arguments = [[0 for x in range(len(sys.argv)-1)],[]]
 for i in sys.argv[1:len(sys.argv[1:len(sys.argv)])]:
