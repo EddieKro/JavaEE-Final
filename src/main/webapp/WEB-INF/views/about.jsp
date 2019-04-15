@@ -35,6 +35,8 @@
 <c:url value="/basic" var="basic"/>
 <c:url value="/advanced" var="advanced"/>
 <c:url value="/demo" var="demo"/>
+<c:url value="/login" var="login"/>
+<c:url value="/registration" var="register"/>
 -->
 
 <!-- link regarding different roles
@@ -76,10 +78,10 @@
                 <li><a href=${model}>${modelText}</a></li>
                 <li class=" active"><a href=${about}>About us</a></li>
                 <li><a href=${contact}>Contact</a></li>
-                <li class="probootstra-cta-button"><a href="#" class="btn" data-toggle="modal"
-                                                      data-target="#loginModal">Log in</a></li>
-                <li class="probootstra-cta-button last"><a href="#" class="btn btn-ghost" data-toggle="modal"
-                                                           data-target="#signupModal">Sign up</a></li>
+                <li class="probootstra-cta-button"><a href="${login}" class="btn"
+                >Log in</a></li>
+                <li class="probootstra-cta-button last"><a href="${register}" class=" btn btn-ghost" data-toggle="modal"
+                >Sign up</a></li>
             </ul>
         </div>
     </div>

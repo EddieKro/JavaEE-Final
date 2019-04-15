@@ -23,6 +23,7 @@
     <link href="${minCss}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="${mergedCss}">
 
+
 </head>
 <body>
 
@@ -34,6 +35,8 @@
 <c:url value="/basic" var="basic"/>
 <c:url value="/advanced" var="advanced"/>
 <c:url value="/demo" var="demo"/>
+<c:url value="/login" var="login"/>
+<c:url value="/registration" var="register"/>
 -->
 
 <!-- link regarding different roles
@@ -74,11 +77,11 @@
                 <li><a href="${index}">Home</a></li>
                 <li><a href="${model}">${modelText}</a></li>
                 <li><a href="${about}">About us</a></li>
-                <li><a href="${contact}">Contact</a></li>
-                <li class="probootstra-cta-button"><a href="#" class="btn" data-toggle="modal"
-                                                      data-target="#loginModal">Log in</a></li>
-                <li class="probootstra-cta-button last"><a href="#" class="btn btn-ghost" data-toggle="modal"
-                                                           data-target="#signupModal">Sign up</a></li>
+                <li><a href="${contact}" class="active">Contact</a></li>
+                <li class="probootstra-cta-button"><a href="${login}" class="btn"
+                >Log in</a></li>
+                <li class="probootstra-cta-button last"><a href="${register}" class=" btn btn-ghost" data-toggle="modal"
+                >Sign up</a></li>
             </ul>
         </div>
     </div>
@@ -157,13 +160,12 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
-                <img src=
-                     <c:url value="/resources/img/client_1.png"/> class="img-responsive">
+                <img src="<c:url value="/resources/img/client_1.png"/>" class=" img-responsive">
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
-                <img src=
-                     <c:url value="/resources/img/client_2.png"/> class="img-responsive">
+                <img src="<c:url value="/resources/img/client_2.png"/>"
+                     class=" img-responsive">
             </div>
             <div class="clearfix visible-sm-block visible-xs-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
@@ -172,8 +174,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
-                <img src=
-                     <c:url value="/resources/img/client_4.png"/> class="img-responsive">
+                <img src="<c:url value="/resources/img/client_4.png"/>" class="img-responsive">
             </div>
 
         </div>
@@ -255,7 +256,7 @@
                     <div class="probootstrap-modal-figure"
                          style="background-image: url(${pageContext.request.contextPath}/resources//modal_bg.jpg);"></div>
                     <div class="probootstrap-modal-content">
-                        <form action="<c:url value='/j_spring_security_check' />" class="probootstrap-form"
+                        <form action="#" class="probootstrap-form"
                               name="loginForm" method="POST">
 
                             <div class="form-group">
@@ -278,8 +279,6 @@
                             <div class="form-group probootstrap-or">
                             </div>
 
-                            <input type="hidden" name="${_csrf.parameterName}"
-                                   value="${_csrf.token}"/>
                         </form>
                     </div>
                 </div>

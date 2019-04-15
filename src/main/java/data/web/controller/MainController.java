@@ -124,4 +124,8 @@ public class MainController {
         return new ModelAndView();
     }
 
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView registrationPage() {
+        return new ModelAndView();
+    }
 }

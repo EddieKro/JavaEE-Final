@@ -15,7 +15,8 @@ public class RegistrationController {
     @Autowired
     public UserDao userDao;
 
-    @RequestMapping(value = {"/registration", "/register"}, method = RequestMethod.GET)
+
+    @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public ModelAndView register() {
         ModelAndView model = new ModelAndView("registration");
         model.addObject("user", new UserEntity());

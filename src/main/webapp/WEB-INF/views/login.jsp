@@ -17,6 +17,9 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
+<c:url value="/index" var="index"/>
+<c:url value="/registration" var="register"/>
+
 
 <c:if test="${not empty error}">--%>
     <div class="error">${error}</div>
@@ -49,10 +52,10 @@
                         </div>
                         <div class="row">
                             <div id="main-link" class="col-sm-9">
-                                <a href="#" class="text-info">Back</a>
+                                <a href="${index}" class="text-info">Back</a>
                             </div>
                             <div id="register-link" class="col-sm-3">
-                                <a href="#" class="text-info">Register here</a>
+                                <a href="${register}" class="text-info">Register here</a>
                             </div>
                         </div>
 

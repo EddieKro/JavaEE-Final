@@ -22,8 +22,11 @@
           rel="stylesheet" id="bootstrap-css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
+    <c:url value="/index" var="index"/>
+    <c:url value="/login" var="login"/>
 
 </head>
+
 
 <body>
 <div id="login">
@@ -35,7 +38,7 @@
                     <form id="registration-form" name="loginForm" class="form"
                           action="./registrationProcess"
                           method='POST'>
-                        <h3 class="text-center text-info">Login</h3>
+                        <h3 class="text-center text-info">Register</h3>
                         <div class="form-group">
                             <label for="username" class="text-info">Username:</label><br>
                             <input type="text" name="username" id="username" class="form-control">
@@ -53,10 +56,10 @@
                         </div>
                         <div class="row">
                             <div id="main-link" class="col-sm-9">
-                                <a href="#" class="text-info">Back</a>
+                                <a href="${index}" class="text-info">Back</a>
                             </div>
                             <div id="register-link" class="col-sm-3">
-                                <a href="#" class="text-info">Login here</a>
+                                <a href="${login}" class="text-info">Login here</a>
                             </div>
                         </div>
 
