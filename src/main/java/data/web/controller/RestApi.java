@@ -1,15 +1,28 @@
 package data.web.controller;
 
+import data.Dao.StatusDao;
+import data.Dao.UserDao;
 import data.Entity.ModelResult;
+import data.Entity.StatusEntity;
+import data.Entity.UserEntity;
 import model.ModelCallerTread;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.sql.Date;
 
 @RestController
 public class RestApi {
+
+    @Autowired
+    UserDao ud;
+
+    @Autowired
+    StatusDao sd;
+
     @RequestMapping(value = "/modelbase/params/{f1}/{f2}/{f3}/{f4}/{f5}/{f6}/{f7}/{f8}/{f9}")
     public ModelResult base(@PathVariable String f1,@PathVariable String f2,@PathVariable String f3,@PathVariable String f4,@PathVariable String f5,@PathVariable String f6,@PathVariable String f7,@PathVariable String f8,@PathVariable String f9){
         String[] features = new String[9];
@@ -63,5 +76,15 @@ public class RestApi {
         ModelResult res = new ModelResult();
         res.setResult(model.getResult().get(0));
         return res;
+    }
+
+    @RequestMapping(value = "/re/{log}/{pass}/{status}")
+    public UserEntity reu(@PathVariable String log,@PathVariable String pass,@PathVariable Integer status){
+        UserEntity ue = new UserEntity();
+        ue.setStatus(sd.getStatusById(status));
+        ue.setLogin(log);
+        ue.setPassword(pass);
+        ue.setDate(new Date(System.currentTimeMillis()));
+        return ud.save(ue);
     }
 }
