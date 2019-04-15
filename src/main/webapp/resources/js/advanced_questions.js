@@ -29,7 +29,8 @@ $(function(){
         {'Q':'What is the kitchen quality?[1-5]'},
         {'Q':'What is the overall condition of the house?[1-5]'},
         {'Q':'What is the overall quality of the house?[1-5]'},
-        {'Q':'What years was your house built?'}
+        {'Q':'What years was your house built?'},
+        {'Q':'What city do you live in?'}
     ];
 
  
@@ -61,32 +62,39 @@ $(function(){
         console.log("Input:" + q[questionNo].CH);
         setTimeout(function(){
             $('#loadbar').show();
-            $('#quiz').fadeOut(200);
+            $('#quiz').fadeOut(70);
             questionNo++;
             if((questionNo + 1) > q.length){
                 alert("Now it's time to analyze what your property's worth.");
-                $('label.element-animation').unbind('click');
+                // $('label.element-animation').unbind('click');
+
+                var link = 'http://localhost:8080/modeladv/params';
+                for(var i=0;i<q.length-1;i++){
+                    link += '/';
+                    link += q[i].CH;
+                }
+                link += '/2/'+q[21].CH;
+                console.log(link);
+                $.getJSON(link,function(data){
+                    $('#qid').html('');
+                    $('#question').html("Your price estimate: "+data['result']+"$");
+                });
+                var under = document.getElementById('usethis');
+                $('#usethis').empty();
+                under.innerHTML = "<li><label class=\"element-animation\"><button type=\"button\" style=\"margin-left:3%;width:30%;height:3em\" onclick=\" relocate_home()\" class=\"btn btn-primary\">Home</button>\n" +
+                    "<button type=\"button\" onclick=\" reload()\" style=\"margin-left:10%;width:30%;height:3em\" class=\"btn btn-success\">Again</button></label></li>"
                 setTimeout(function(){
-                    var toAppend = '';
-                    // $.each(q, function(i, a){
-                    //     toAppend += '<tr>'
-                    //     toAppend += '<td>'+(i+1)+'</td>';
-                    //     toAppend += '<td>'+a.A+'</td>';
-                    //     toAppend += '<td>'+a.UC+'</td>';
-                    //     toAppend += '<td>'+a.result+'</td>';
-                    //     toAppend += '</tr>'
-                    // });
-                    $('#loadbar').fadeOut();
-                    $('#result-of-question').show();
-                    $('#graph-result').show();
-                    chartMake();
-                }, 500);
+                    $('#loadbar').fadeOut(200);
+                    $('#quiz').fadeIn(400);
+                    // $('#result-of-question').show();
+                    // $('#graph-result').show();
+                }, 3400);
             } else {
-                
+
                 $('input:radio').prop('checked', false);
                 setTimeout(function(){
                     $('#qid').html(questionNo + 1);
-                    $('#question').html(q[questionNo].Q); 
+                    $('#question').html(q[questionNo].Q);
                     $('#loadbar').fadeOut(200);
                     $('#quiz').fadeIn(700);
                     reset();
@@ -96,13 +104,41 @@ $(function(){
                         field.min = 0;
                         field.max = 5;
                     }
-                    if((questionNo+1)===q.length){
+                    if((questionNo+2)===q.length){
                         var field = document.getElementById("ans");
                         field.value=1900;
                         field.min = 1900;
                         field.max = 2019;
-                    };
-                }, 1500);               
+                    }
+                    if((questionNo+1)===q.length){
+                        console.log('here');
+                        var field = document.getElementById("ans");
+                        var parent = field.parentElement;
+                        parent.removeChild(field);
+                        parent.innerHTML = "<select name=\"countryCode\" class=\"inpnu\" id=\"ans\">\n" +
+                            "\t<option data-countryCode=\"US\" value=\"AZ-Phoenix\" Selected>AZ-Phoenix</option>\n" +
+                            "\t<option data-countryCode=\"US\" value=\"CA-Los Angeles\">CA-Los Angeles</option>\n" +
+                            "\t<option data-countryCode=\"US\" value=\"CA-San Diego\">CA-San Diego</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"CA-San Francisco\">CA-San Francisco</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"CO-Denver\">CO-Denver</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"DC-Washington\">DC-Washington</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"FL-Miami\">FL-Miami</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"FL-Tampa\">FL-Tampa</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"GA-Atlanta\">GA-Atlanta</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"IL-Chicago\">IL-Chicago</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"MA-Boston\">MA-Boston</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"MI-Detroit\">MI-Detroit</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"MN-Minneapolis\">MN-Minneapolis</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"NC-Charlotte\">NC-Charlotte</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"NV-Las Vegas\">NV-Las Vegas</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"NY-New York\">NY-New York</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"OH-Cleveland\">OH-Cleveland</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"OR-Portland\">OR-Portland</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"TX-Dallas\">TX-Dallas</option>\n"+
+                            "\t<option data-countryCode=\"US\" value=\"WA-Seattle\">WA-Seattle</option>\n"+
+                            "\t</select>"
+                    }
+                }, 1500);
             }
         }, 700);
     });
@@ -112,57 +148,5 @@ $(function(){
         if(resetButton){
             resetButton.value= 0;
        }
-    }
-// chartMake();
-    function chartMake(){
-
-         var chart = AmCharts.makeChart("chartdiv",
-            {
-            "type": "serial",
-            "theme": "dark",
-            "dataProvider": [{
-                "name": "Correct",
-                "points": correctCount,
-                "color": "#00FF00",
-                "bullet": "http://i2.wp.com/img2.wikia.nocookie.net/__cb20131006005440/strategy-empires/images/8/8e/Check_mark_green.png?w=250"
-            }, {
-                "name": "Incorrect",
-                "points":q.length-correctCount,
-                "color": "red",
-                "bullet": "http://4vector.com/i/free-vector-x-wrong-cross-no-clip-art_103115_X_Wrong_Cross_No_clip_art_medium.png"
-            }],
-            "valueAxes": [{
-                "maximum": q.length,
-                "minimum": 0,
-                "axisAlpha": 0,
-                "dashLength": 4,
-                "position": "left"
-            }],
-            "startDuration": 1,
-            "graphs": [{
-                "balloonText": "<span style='font-size:13px;'>[[category]]: <b>[[value]]</b></span>",
-                "bulletOffset": 10,
-                "bulletSize": 52,
-                "colorField": "color",
-                "cornerRadiusTop": 8,
-                "customBulletField": "bullet",
-                "fillAlphas": 0.8,
-                "lineAlpha": 0,
-                "type": "column",
-                "valueField": "points"
-            }],
-            "marginTop": 0,
-            "marginRight": 0,
-            "marginLeft": 0,
-            "marginBottom": 0,
-            "autoMargins": false,
-            "categoryField": "name",
-            "categoryAxis": {
-                "axisAlpha": 0,
-                "gridAlpha": 0,
-                "inside": true,
-                "tickLength": 0
-            }
-        });
     }
 }); 

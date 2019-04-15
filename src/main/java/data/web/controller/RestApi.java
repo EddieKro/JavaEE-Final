@@ -35,14 +35,14 @@ public class RestApi {
         features[6]=f7;
         features[7]=f8;
         features[8]=f9;
-        ModelCallerTread model = new ModelCallerTread(features,new File("/home/tomato/IdeaProjects/JavaEE-Final2/pythonStuff/basic_predict.py"));
+        ModelCallerTread model = new ModelCallerTread(features,new File("/Users/craq/Documents/GitHub/JavaEE-Final/pythonStuff/basic_predict.py"));
         Thread rm = new Thread(model);
         rm.run();
         ModelResult res = new ModelResult();
         res.setResult(model.getResult().get(0));
         return res;
     }
-    @RequestMapping(value = "/modeladv/params/{f1}/{f2}/{f3}/{f4}/{f5}/{f6}/{f7}/{f8}/{f9}/{f10}/{f11}/{f12}/{f13}/{f14}/{f15}/{f16}/{f17}/{f18}/{f19}/{f20}/{f22}/{f23}")
+    @RequestMapping(value = "/modeladv/params/{f1}/{f2}/{f3}/{f4}/{f5}/{f6}/{f7}/{f8}/{f9}/{f10}/{f11}/{f12}/{f13}/{f14}/{f15}/{f16}/{f17}/{f18}/{f19}/{f20}/{f21}/{f22}/{f23}")
     public ModelResult adv(@PathVariable String f1,@PathVariable String f2,@PathVariable String f3,@PathVariable String f4,@PathVariable String f5,@PathVariable String f6,@PathVariable String f7,@PathVariable String f8,@PathVariable String f9,
                            @PathVariable String f10,
                            @PathVariable String f11,@PathVariable String f12,@PathVariable String f13,@PathVariable String f14,@PathVariable String f15,@PathVariable String f16,@PathVariable String f17,@PathVariable String f18,@PathVariable String f19,@PathVariable String f20,@PathVariable String f21,@PathVariable String f22,@PathVariable String f23){
@@ -70,7 +70,7 @@ public class RestApi {
         features[20]=f21;
         features[21]=f22;
         features[22]=f23;
-        ModelCallerTread model = new ModelCallerTread(features,new File("/home/tomato/IdeaProjects/JavaEE-Final2/pythonStuff/advanced_predict.py"));
+        ModelCallerTread model = new ModelCallerTread(features,new File("/Users/craq/Documents/GitHub/JavaEE-Final/pythonStuff/advanced_predict.py"));
         Thread rm = new Thread(model);
         rm.run();
         ModelResult res = new ModelResult();
