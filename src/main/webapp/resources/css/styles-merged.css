@@ -14570,7 +14570,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .flexslider .slides > li {
-    display: none;
+    display: block;
     -webkit-backface-visibility: hidden;
 }
 

@@ -1656,7 +1656,7 @@ a:hover, a:focus, a:active {
 
 @media screen and (max-width: 480px) {
     .flexslider .flex-direction-nav {
-        display: none;
+        display: block;
     }
 }
 

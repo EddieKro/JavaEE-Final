@@ -16,7 +16,7 @@
     <title>Omega Real Estate</title>
 
 
-    <spring:url value="/resources/css/style.min.css" var="minCss"/>
+    <spring:url value="/resources/css/style.css" var="minCss"/>
     <spring:url value="/resources/css/styles-merged.css" var="mergedCss"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700">
@@ -64,7 +64,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Stack</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="${pageContext.request.contextPath}/resources/img/logo_ore.png" class="image">
+            </a>
         </div>
 
         <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -84,42 +86,8 @@
 
 <section class="flexslider">
     <ul class="slides">
-        <li style="background-image: url(${pageContext.request.contextPath}/resources/img/sale.jpg)" class="overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="probootstrap-slider-text text-center">
-                            <h1 class="probootstrap-heading">We Create Interfaces</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li style="background-image: url(${pageContext.request.contextPath}/resources/img/ai.jpg)" class="overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="probootstrap-slider-text text-center">
-                            <h1 class="probootstrap-heading">We Design Powerful Experiences</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </li>
         <li style="background-image: url(${pageContext.request.contextPath}/resources/img/ai-in-re.jpg)"
             class="overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="probootstrap-slider-text text-center">
-                            <h1 class="probootstrap-heading">We Bring Ideas To Life</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li style="background-image: url(${pageContext.request.contextPath}/resources/img/graph.jpg)" class="overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -157,7 +125,7 @@
                     <div class="text">
                         <h3>AI</h3>
                         <p>Omega real estate provides you access to the latest breakthroughs in Artificial
-                            Intelligencein house prediction.</p>
+                            Intelligence in house prediction.</p>
                     </div>
                 </div>
             </div>
@@ -165,61 +133,13 @@
                 <div class="service hover_service text-center">
                     <div class="icon"><i class="icon-magnifying-glass2"></i></div>
                     <div class="text">
-                        <h3>Search Engine Friendly</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus
-                            quos quibusdam soluta at.</p>
+                        <h3>User friendly interface</h3>
+                        <p>Our engineers have worked hard to bring you a seemless experience using our service.</p>
                     </div>
                 </div>
             </div>
         </div>
         <!-- END row -->
-    </div>
-</section>
-
-<section class="probootstrap-section probootstrap-bg-white ">
-    <div class="owl-carousel owl-work">
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_1.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_2.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_3.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_4.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_5.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_6.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
-        <div class="item">
-            <a href="portfolio-single.html">
-                <img src="${pageContext.request.contextPath}/resources/img/work_7.jpg"
-                     alt="Free Bootstrap Template by uicookies.com">
-            </a>
-        </div>
     </div>
 </section>
 
@@ -238,26 +158,22 @@
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
                 <img src=
-                     <c:url value="/resources/img/client_1.png"/> class="img-responsive"
-                     alt="Free Bootstrap Template by uicookies.com">
+                     <c:url value="/resources/img/client_1.png"/> class="img-responsive">
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
                 <img src=
-                     <c:url value="/resources/img/client_2.png"/> class="img-responsive"
-                     alt="Free Bootstrap Template by uicookies.com">
+                     <c:url value="/resources/img/client_2.png"/> class="img-responsive">
             </div>
             <div class="clearfix visible-sm-block visible-xs-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
-                <img src="<c:url value="/resources/img/client_3.png"/>" class="img-responsive"
-                     alt="Free Bootstrap Template by uicookies.com">
+                <img src="<c:url value="/resources/img/client_3.png"/>" class="img-responsive">
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 text-center client-logo probootstrap-animate"
                  data-animate-effect="fadeIn">
                 <img src=
-                     <c:url value="/resources/img/client_4.png"/> class="img-responsive"
-                     alt="Free Bootstrap Template by uicookies.com">
+                     <c:url value="/resources/img/client_4.png"/> class="img-responsive">
             </div>
 
         </div>
@@ -273,21 +189,23 @@
                     <div class="icon"><i class="icon-mobile3"></i></div>
                     <div class="text">
                         <h3>Responsive Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit iusto provident.</p>
+                        <p>With the use of new technologies we bring you a design capable of being
+                            displayed on PC, phone and even tablet.</p>
                     </div>
                 </div>
                 <div class="service left-icon probootstrap-animate" data-animate-effect="fadeInLeft">
                     <div class="icon"><i class="icon-presentation"></i></div>
                     <div class="text">
                         <h3>Business Solutions</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit iusto provident.</p>
+                        <p>We are highly motivated to work with real estate businesses to give them
+                            a perfect solution to estimate estate value.</p>
                     </div>
                 </div>
                 <div class="service left-icon probootstrap-animate" data-animate-effect="fadeInLeft">
                     <div class="icon"><i class="icon-circle-compass"></i></div>
                     <div class="text">
                         <h3>Brand Identity</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit iusto provident.</p>
+                        <p>We stand out from our competition and bring you the best estimates possible.</p>
                     </div>
                 </div>
             </div>
@@ -295,88 +213,30 @@
                 <div class="service left-icon probootstrap-animate" data-animate-effect="fadeInLeft">
                     <div class="icon"><i class="icon-lightbulb"></i></div>
                     <div class="text">
-                        <h3>Creative Ideas</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus
-                            quos quibusdam soluta at.</p>
+                        <h3>Artificial Intelligence</h3>
+                        <p>With the use of state of the art Machine Learning algorithms, we have achieved
+                            something we want to share with the whole world and make life easier.</p>
                     </div>
                 </div>
 
                 <div class="service left-icon probootstrap-animate" data-animate-effect="fadeInLeft">
                     <div class="icon"><i class="icon-magnifying-glass2"></i></div>
                     <div class="text">
-                        <h3>Search Engine Friendly</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus
-                            quos quibusdam soluta at.</p>
+                        <h3>User Friendly</h3>
+                        <p>With the use of modern technologies we simplified the design to a point
+                            even a toddler could use it.</p>
                     </div>
                 </div>
 
                 <div class="service left-icon probootstrap-animate" data-animate-effect="fadeInLeft">
                     <div class="icon"><i class="icon-browser2"></i></div>
                     <div class="text">
-                        <h3>Easy Customization</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus
-                            quos quibusdam soluta at.</p>
+                        <h3>Fast Results</h3>
+                        <p>Our engineers have worked hard to optimize the speed at which you get your results
+                            ane let me tell you, it's very fast!</p>
                     </div>
                 </div>
 
-            </div>
-        </div>
-        <!-- END row -->
-    </div>
-</section>
-
-<section class="probootstrap-section probootstrap-border-top probootstrap-bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-                <h2>Testimonial</h2>
-            </div>
-        </div>
-        <!-- END row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="owl-carousel owl-carousel-fullwidth">
-                    <div class="item">
-
-                        <div class="probootstrap-testimony-wrap text-center">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/img/person_1.jpg"
-                                     alt="Free Bootstrap Template by uicookies.com">
-                            </figure>
-                            <blockquote class="quote">&ldquo;Design must be functional and functionality must be
-                                translated into visual aesthetics, without any reliance on gimmicks that have to be
-                                explained.&rdquo; <cite class="author">&mdash; Ferdinand A. Porsche <br> <span>Design Lead at AirBNB</span></cite>
-                            </blockquote>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <div class="probootstrap-testimony-wrap text-center">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/img/person_2.jpg"
-                                     alt="Free Bootstrap Template by uicookies.com">
-                            </figure>
-                            <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative
-                                people how they did something, they feel a little guilty because they didn’t really do
-                                it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite
-                                        class="author">&mdash; Steve Jobs <br> <span>Co-Founder Square</span></cite>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="probootstrap-testimony-wrap text-center">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/img/person_3.jpg"
-                                     alt="Free Bootstrap Template by uicookies.com">
-                            </figure>
-                            <blockquote class="quote">&ldquo;I think design would be better if designers were much more
-                                skeptical about its applications. If you believe in the potency of your craft, where you
-                                choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash;
-                                    Frank Chimero <br> <span>Creative Director at Twitter</span></cite></blockquote>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
         <!-- END row -->
