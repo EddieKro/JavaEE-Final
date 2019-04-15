@@ -1,2 +1,7 @@
+target/
+.idea/
 .idea
 *.ipynb_checkpoints
+out/
+src/main/java/data/web/controller/Rest.java
+target/
