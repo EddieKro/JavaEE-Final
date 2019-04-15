@@ -45,103 +45,103 @@
 	/*----------------------------------------
 		Carousel
 	----------------------------------------*/
-	var owlCarousel = function(){
+	// var owlCarousel = function(){
 
-		var owl = jQuery('.owl-carousel-carousel');
-		owl.owlCarousel({
-			items: 3,
-			loop: true,
-			margin: 20,
-			nav: true,
-			dots: true,
-			smartSpeed: 800,
-			autoHeight: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	],
-	     	responsive:{
-	        0:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:3
-	        }
-	    	}
-		});
+	// 	var owl = jQuery('.owl-carousel-carousel');
+	// 	owl.owlCarousel({
+	// 		items: 3,
+	// 		loop: true,
+	// 		margin: 20,
+	// 		nav: true,
+	// 		dots: true,
+	// 		smartSpeed: 800,
+	// 		autoHeight: true,
+	// 		navText: [
+	// 	      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
+	// 	      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
+	//      	],
+	//      	responsive:{
+	//         0:{
+	//             items:1
+	//         },
+	//         600:{
+	//             items:2
+	//         },
+	//         1000:{
+	//             items:3
+	//         }
+	//     	}
+	// 	});
 
-		var owl = jQuery('.owl-carousel-fullwidth');
-		owl.owlCarousel({
-			items: 1,
-			loop: true,
-			margin: 20,
-			nav: false,
-			dots: true,
-			smartSpeed: 800,
-			autoHeight: true,
-			autoplay: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	]
-		});
+	// 	var owl = jQuery('.owl-carousel-fullwidth');
+	// 	owl.owlCarousel({
+	// 		items: 1,
+	// 		loop: true,
+	// 		margin: 20,
+	// 		nav: false,
+	// 		dots: true,
+	// 		smartSpeed: 800,
+	// 		autoHeight: true,
+	// 		autoplay: true,
+	// 		navText: [
+	// 	      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
+	// 	      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
+	//      	]
+	// 	});
 
-		var owl = jQuery('.owl-work');
-		owl.owlCarousel({
-			stagePadding: 150,
-			loop: true,
-			margin: 20,
-			nav: true,
-			mouseDrag: false,
-			autoWidth: true,
-	    autoplay: true,
-	    autoplayTimeout:2000,
-	    autoplayHoverPause:true,
-			navText: [	
-				"<i class='icon-chevron-thin-left'></i>",
-				"<i class='icon-chevron-thin-right'></i>"
-			],
-			responsive:{
-			  0:{
-		      items:1,
-		      stagePadding: 10
-			  },
-			  500:{
-			  	items:2,
-		      stagePadding: 20
-			  },
-			  600:{
-		      items:2,
-		      stagePadding: 40
-			  },
-			  800: {
-			  	items:2,
-			  	stagePadding: 100
-			  },
-			  1100:{
-		      items:3
-			  },
-			  1400:{
-		      items:4
-			  },
-			}
-		});
-	};
+	// 	var owl = jQuery('.owl-work');
+	// 	owl.owlCarousel({
+	// 		stagePadding: 150,
+	// 		loop: true,
+	// 		margin: 20,
+	// 		nav: true,
+	// 		mouseDrag: false,
+	// 		autoWidth: true,
+	//     autoplay: true,
+	//     autoplayTimeout:2000,
+	//     autoplayHoverPause:true,
+	// 		navText: [	
+	// 			"<i class='icon-chevron-thin-left'></i>",
+	// 			"<i class='icon-chevron-thin-right'></i>"
+	// 		],
+	// 		responsive:{
+	// 		  0:{
+	// 	      items:1,
+	// 	      stagePadding: 10
+	// 		  },
+	// 		  500:{
+	// 		  	items:2,
+	// 	      stagePadding: 20
+	// 		  },
+	// 		  600:{
+	// 	      items:2,
+	// 	      stagePadding: 40
+	// 		  },
+	// 		  800: {
+	// 		  	items:2,
+	// 		  	stagePadding: 100
+	// 		  },
+	// 		  1100:{
+	// 	      items:3
+	// 		  },
+	// 		  1400:{
+	// 	      items:4
+	// 		  },
+	// 		}
+	// 	});
+	// };
 
-	/*----------------------------------------
-		Slider
-	----------------------------------------*/
-	var flexSlider = function() {
-	  jQuery('.flexslider').flexslider({
-	    animation: "fade",
-	    prevText: "",
-	    nextText: "",
-	    slideshow: true
-	  });
-	}
+	// /*----------------------------------------
+	// 	Slider
+	// ----------------------------------------*/
+	// var flexSlider = function() {
+	//   jQuery('.flexslider').flexslider({
+	//     animation: "fade",
+	//     prevText: "",
+	//     nextText: "",
+	//     slideshow: true
+	//   });
+	// }
 
 	/*----------------------------------------
 		Feature Showcase
@@ -225,9 +225,9 @@
 		navbarState();
 	});
 
-	jQuery(window).load(function(){
-		owlCarousel();
-		flexSlider();
-	});
+	// jQuery(window).load(function(){
+	// 	owlCarousel();
+	// 	flexSlider();
+	// });
 
 })();

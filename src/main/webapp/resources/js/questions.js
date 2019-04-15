@@ -9,9 +9,11 @@ $(function(){
     
     var questionNo = 0;
     var q = [
-        {'Q':'How large is your house in square feet?'},
         {'Q':'How large is your lot in square feet?'},
-        {'Q':'How many garages do you have?'},
+        {'Q':'How large is your first floor in square feet?'},
+        {'Q':'How large is your second floor in square feet?'},
+        {'Q':'How large is your basement in square feet?'},
+        {'Q':'How large is your garage in square feet'},
         {'Q':'How many rooms do you have?'},
         {'Q':'What years was your house built?'}
     ];
