@@ -25,7 +25,7 @@ public class MainController {
     @Autowired
     StatusDao sd;
 
-    @RequestMapping(value = {"/", "/index**"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/index**", "/index"}, method = RequestMethod.GET)
     public ModelAndView defaultPage() {
         ModelAndView model = new ModelAndView();
         model.setViewName("index");
@@ -39,17 +39,6 @@ public class MainController {
         model.addObject("title", "Spring Security Login Form - Database Authentication");
         model.addObject("message", "This is default page!");
         model.setViewName("hello");
-        return model;
-
-    }
-
-    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
-    public ModelAndView adminPage() {
-
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Login Form - Database Authentication");
-        model.addObject("message", "This page is for ROLE_ADMIN only!");
-        model.setViewName("admin");
         return model;
 
     }
@@ -141,10 +130,11 @@ public class MainController {
         return new ModelAndView();
     }
 
-    private StatusEntity getStatus(Integer id){
+    private StatusEntity getStatus(Integer id) {
         return sd.getStatusById(id);
     }
-    private void registerUser(String login, String pass, StatusEntity se){
+
+    private void registerUser(String login, String pass, StatusEntity se) {
         UserEntity ue = new UserEntity();
         ue.setLogin(login);
         ue.setPassword(pass);

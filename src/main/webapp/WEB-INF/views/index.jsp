@@ -37,25 +37,34 @@
 <c:url value="/demo" var="demo"/>
 <c:url value="/login" var="login"/>
 <c:url value="/registration" var="register"/>
+<c:url value="/j_spring_security_logout" var="logout"/>
 -->
 
-<!-- link regarding different roles
+<!-- link regarding different roles-->
 
-    //default role
-    <c:url var="model" value="/demo"/>
-    <c:set var="modelText" value="Demo"/>
 
-    <sec:authorize access="hasRole('ROLE_USER')">
-        <c:url var="model" value="/basic"/>
-        <c:set var="modelText" value="Basic estimate"/>
-    </sec:authorize>
+//default role
+<c:url var="model" value="/demo"/>
+<c:set var="modelText" value="Demo"/>
 
-    <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <c:url var="model" value="/advanced"/>
-        <c:set var="modelText" value="Advanced estimate"/>
-    </sec:authorize>
+<c:url var="loginStatus" value="/login"/>
+<c:set var="loginText" value="LOG IN"/>
 
--->
+
+<sec:authorize access="hasRole('ROLE_START')">
+    <c:url var="model" value="/basic"/>
+    <c:set var="modelText" value="Basic estimate"/>
+
+    <c:url var="loginStatus" value="/j_spring_security_logout"/>
+    <c:set var="loginText" value="LOG OUT"/>
+
+</sec:authorize>
+
+<sec:authorize access="hasRole('ROLE_PREMI')">
+    <c:url var="model" value="/advanced"/>
+    <c:set var="modelText" value="Advanced estimate"/>
+</sec:authorize>
+
 
 <nav class="navbar navbar-default navbar-fixed-top probootstrap-navbar">
     <div class="container">
@@ -78,10 +87,33 @@
                 <li><a href="${model}">${modelText}</a></li>
                 <li><a href="${about}">About us</a></li>
                 <li><a href="${contact}" class="active">Contact</a></li>
-                <li class="probootstra-cta-button"><a href="${login}" class="btn"
-                >Log in</a></li>
-                <li class="probootstra-cta-button last"><a href="${register}" class=" btn btn-ghost" data-toggle="modal"
-                >Sign up</a></li>
+                <li class="probootstra-cta-button">
+
+
+                    <sec:authorize access="!hasRole('ROLE_START')">
+                        <a href="${loginStatus}" class="btn">${loginText}</a>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ROLE_START')">
+                        <form action="${loginStatus}" method="post" id="logoutForm">
+                            <input type="hidden" name="${_csrf.parameterName}"
+                                   value="${_csrf.token}"/>
+                        </form>
+                        <script>
+                            function formSubmit() {
+                                document.getElementById("logoutForm").submit();
+                            }
+                        </script>
+
+                        <a href="javascript:formSubmit()">${loginText}</a>
+                    </sec:authorize>
+
+                </li>
+                <sec:authorize access="!hasRole('ROLE_START')">
+                    <li class="probootstra-cta-button last"><a href="${register}" class=" btn btn-ghost"
+                                                               data-toggle="modal"
+                    >SIGN UP</a></li>
+                </sec:authorize>
+
             </ul>
         </div>
     </div>
